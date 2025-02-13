@@ -14,7 +14,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
-public class Clerk_Customers extends JFrame {
+public class Clerk_Dashboard extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -26,7 +26,7 @@ public class Clerk_Customers extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Clerk_Customers frame = new Clerk_Customers();
+					Clerk_Dashboard frame = new Clerk_Dashboard();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,7 +38,7 @@ public class Clerk_Customers extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Clerk_Customers() {
+	public Clerk_Dashboard() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1334, 782);
 		contentPane = new JPanel();
@@ -103,12 +103,12 @@ public class Clerk_Customers extends JFrame {
 		panel.add(panel_Line);
 		
 		JButton btn_Dashboard = new JButton("DASHBOARD");
-		btn_Dashboard.setForeground(new Color(85, 45, 20));
+		btn_Dashboard.setForeground(new Color(252, 230, 188));
 		btn_Dashboard.setFont(new Font("Corbel Light", Font.BOLD, 25));
-		btn_Dashboard.setBackground(new Color(252, 230, 188));
+		btn_Dashboard.setBackground(new Color(139, 76, 33));
 		btn_Dashboard.setBorderPainted(false);
 		btn_Dashboard.setFocusPainted(false);
-		btn_Dashboard.setBounds(172, 66, 224, 56);
+		btn_Dashboard.setBounds(172, 67, 224, 56);
 		panel.add(btn_Dashboard);
 		
 		JButton btn_Booking = new JButton("BOOKING");
@@ -130,12 +130,12 @@ public class Clerk_Customers extends JFrame {
 		panel.add(btn_Rooms);
 		
 		JButton btn_Customers = new JButton("CUSTOMERS");
-		btn_Customers.setForeground(new Color(252, 230, 188));
+		btn_Customers.setForeground(new Color(85, 45, 20));
 		btn_Customers.setFont(new Font("Corbel Light", Font.BOLD, 25));
 		btn_Customers.setFocusPainted(false);
 		btn_Customers.setBorderPainted(false);
-		btn_Customers.setBackground(new Color(139, 76, 33));
-		btn_Customers.setBounds(875, 67, 224, 56);
+		btn_Customers.setBackground(new Color(252, 230, 188));
+		btn_Customers.setBounds(875, 66, 224, 56);
 		panel.add(btn_Customers);
 		
 		JPanel panel_1 = new JPanel();
