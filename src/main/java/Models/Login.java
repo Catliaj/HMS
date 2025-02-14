@@ -10,6 +10,9 @@ import javax.swing.ImageIcon;
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 
 public class Login extends JFrame {
@@ -71,13 +74,22 @@ public class Login extends JFrame {
 		lbl_CompanyName.setBounds(220, 133, 246, 26);
 		panel.add(lbl_CompanyName);
 		
-		JButton btn_Clerk_1 = new JButton("");
-		btn_Clerk_1.setIcon(new ImageIcon(Login.class.getResource("/Resources/Clerk_Ico_NoBR.png")));
-		btn_Clerk_1.setFocusPainted(false);
-		btn_Clerk_1.setContentAreaFilled(false);
-		btn_Clerk_1.setBorderPainted(false);
-		btn_Clerk_1.setBounds(224, 203, 91, 95);
-		panel.add(btn_Clerk_1);
+		JButton btn_Clerk = new JButton("");
+		btn_Clerk.setIcon(new ImageIcon(Login.class.getResource("/Resources/Clerk_Ico_NoBR.png")));
+		btn_Clerk.setFocusPainted(false);
+		btn_Clerk.setContentAreaFilled(false);
+		btn_Clerk.setBorderPainted(false);
+		btn_Clerk.setBounds(224, 203, 91, 95);
+		panel.add(btn_Clerk);
+		
+		btn_Clerk.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        
+		        dispose();
+		        new Clerk_Login().setVisible(true);
+		    }
+		});
 		
 		JLabel lbl_Clerk = new JLabel("CLERK");
 		lbl_Clerk.setVerticalAlignment(SwingConstants.TOP);
@@ -87,13 +99,22 @@ public class Login extends JFrame {
 		lbl_Clerk.setBounds(224, 341, 84, 26);
 		panel.add(lbl_Clerk);
 		
-		JButton btn_Clerk = new JButton("");
-		btn_Clerk.setIcon(new ImageIcon(Login.class.getResource("/Resources/Customer_Icon_NoBR.png")));
-		btn_Clerk.setContentAreaFilled(false);
-		btn_Clerk.setBorderPainted(false);
-		btn_Clerk.setFocusPainted(false);
-		btn_Clerk.setBounds(385, 206, 65, 88);
-		panel.add(btn_Clerk);
+		JButton btn_Customer = new JButton("");
+		btn_Customer.setIcon(new ImageIcon(Login.class.getResource("/Resources/Customer_Icon_NoBR.png")));
+		btn_Customer.setContentAreaFilled(false);
+		btn_Customer.setBorderPainted(false);
+		btn_Customer.setFocusPainted(false);
+		btn_Customer.setBounds(385, 206, 65, 88);
+		panel.add(btn_Customer);
+		
+		btn_Customer.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        
+		        dispose();
+		        new Customer_Login().setVisible(true);
+		    }
+		});
 		
 		JLabel lbl_Customer = new JLabel("CUSTOMER");
 		lbl_Customer.setVerticalAlignment(SwingConstants.TOP);

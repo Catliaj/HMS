@@ -3,8 +3,6 @@ package Models;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
-
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,6 +11,10 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
 
 public class Clerk_Dashboard extends JFrame {
 
@@ -120,6 +122,15 @@ public class Clerk_Dashboard extends JFrame {
 		btn_Booking.setBounds(406, 66, 224, 56);
 		panel.add(btn_Booking);
 		
+		btn_Booking.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        
+		        dispose();
+		        new Clerk_Booking().setVisible(true);
+		    }
+		});
+		
 		JButton btn_Rooms = new JButton("ROOMS");
 		btn_Rooms.setForeground(new Color(85, 45, 20));
 		btn_Rooms.setFont(new Font("Corbel Light", Font.BOLD, 25));
@@ -128,6 +139,15 @@ public class Clerk_Dashboard extends JFrame {
 		btn_Rooms.setBackground(new Color(252, 230, 188));
 		btn_Rooms.setBounds(640, 66, 224, 56);
 		panel.add(btn_Rooms);
+		
+		btn_Rooms.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        
+		        dispose();
+		        new Clerk_Rooms().setVisible(true);
+		    }
+		});
 		
 		JButton btn_Customers = new JButton("CUSTOMERS");
 		btn_Customers.setForeground(new Color(85, 45, 20));
@@ -138,12 +158,41 @@ public class Clerk_Dashboard extends JFrame {
 		btn_Customers.setBounds(875, 66, 224, 56);
 		panel.add(btn_Customers);
 		
+		btn_Customers.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        
+		        dispose();
+		        new Clerk_Customers().setVisible(true);
+		    }
+		});
+		
+		JButton btn_Exit = new JButton("EXIT");
+		btn_Exit.setForeground(new Color(85, 45, 20));
+		btn_Exit.setFont(new Font("Corbel Light", Font.BOLD, 25));
+		btn_Exit.setFocusPainted(false);
+		btn_Exit.setBorderPainted(false);
+		btn_Exit.setBackground(new Color(252, 230, 188));
+		btn_Exit.setBounds(1110, 66, 190, 56);
+		panel.add(btn_Exit);
+		
+		btn_Exit.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        
+		        dispose();
+		        new Login().setVisible(true);
+		    }
+		});
+
+		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 204, 0));
 		panel_1.setBorder(new LineBorder(new Color(85, 45, 20), 6));
-		panel_1.setBounds(348, 222, 422, 395);
+		panel_1.setBounds(75, 221, 1171, 472);
 		panel.add(panel_1);
+		panel_1.setLayout(null);
 		
-	}
 
+	}
 }
