@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Color;
@@ -16,6 +17,8 @@ import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+
+import Modules.LoginAuth;
 
 
 public class Clerk_Login extends JFrame {
@@ -134,12 +137,25 @@ public class Clerk_Login extends JFrame {
 		panel.add(btn_Login);
 		
 		btn_Login.addActionListener(new ActionListener() {
+			
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        
-		        dispose();
-		        new Clerk_Dashboard().setVisible(true);
-		    }
+		    	LoginAuth authentication  = new LoginAuth();
+				String username = textField_Username.getText();
+				String password = String.valueOf(passwordField.getPassword());
+				authentication.clerkLogin(username, password);
+				if(authentication.loginSuccess())
+				{
+					dispose();
+					new Clerk_Dashboard().setVisible(true);
+				}
+				else
+				{
+					textField_Username.setText("");
+					passwordField.setText("");
+				}
+			}
 		});
 		
 		JButton btn_Back = new JButton("BACK");

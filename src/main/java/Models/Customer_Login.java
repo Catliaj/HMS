@@ -9,6 +9,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+
+import Modules.LoginAuth;
+
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Color;
@@ -132,13 +135,26 @@ public class Customer_Login extends JFrame {
 		btn_Login.setBounds(289, 322, 108, 23);
 		panel.add(btn_Login);
 		
-		btn_Login.addActionListener(new ActionListener() {
+        btn_Login.addActionListener(new ActionListener() {
+			
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        
-		        dispose();
-		        new Customer_Booking().setVisible(true);
-		    }
+		    	LoginAuth authentication  = new LoginAuth();
+				String username = textField_Username.getText();
+				String password = String.valueOf(passwordField.getPassword());
+				authentication.customerLogin(username, password);
+				if(authentication.loginSuccess())
+				{
+					dispose();
+					new Customer_Booking().setVisible(true);
+				}
+				else
+				{
+					textField_Username.setText("");
+					passwordField.setText("");
+				}
+			}
 		});
 		
 		JButton btn_Back = new JButton("BACK");
