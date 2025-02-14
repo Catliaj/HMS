@@ -2,11 +2,16 @@ package Models;
 
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+
+import Modules.LoginAuth;
+
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Color;
@@ -127,8 +132,49 @@ public class Customer_Login extends JFrame {
 		btn_Login.setForeground(new Color(242, 209, 146));
 		btn_Login.setBackground(new Color(85, 45, 20));
 		btn_Login.setBorder(BorderFactory.createLineBorder(new Color(139, 76, 33), 2));
-		btn_Login.setBounds(289, 332, 108, 23);
+		btn_Login.setBounds(289, 322, 108, 23);
 		panel.add(btn_Login);
+		
+        btn_Login.addActionListener(new ActionListener() {
+			
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        
+		    	LoginAuth authentication  = new LoginAuth();
+				String username = textField_Username.getText();
+				String password = String.valueOf(passwordField.getPassword());
+				authentication.customerLogin(username, password);
+				if(authentication.loginSuccess())
+				{
+					dispose();
+					new Customer_Booking().setVisible(true);
+				}
+				else
+				{
+					textField_Username.setText("");
+					passwordField.setText("");
+				}
+			}
+		});
+		
+		JButton btn_Back = new JButton("BACK");
+		btn_Back.setVerticalAlignment(SwingConstants.BOTTOM);
+		btn_Back.setForeground(new Color(242, 209, 146));
+		btn_Back.setFont(new Font("Corbel Light", Font.BOLD, 15));
+		btn_Back.setFocusPainted(false);
+		btn_Back.setBorder(BorderFactory.createLineBorder(new Color(139, 76, 33), 2));
+		btn_Back.setBackground(new Color(85, 45, 20));
+		btn_Back.setBounds(289, 350, 108, 23);
+		panel.add(btn_Back);
+		
+		btn_Back.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        
+		        dispose();
+		        new Login().setVisible(true);
+		    }
+		});
 		
 		JButton btn_MakeAnAccount = new JButton("<html><u>Make an account</u></html>");
 		btn_MakeAnAccount.setVerticalAlignment(SwingConstants.TOP);
@@ -138,7 +184,16 @@ public class Customer_Login extends JFrame {
 		btn_MakeAnAccount.setContentAreaFilled(false);
 		btn_MakeAnAccount.setBorderPainted(false);
 		btn_MakeAnAccount.setFocusPainted(false);
-		btn_MakeAnAccount.setBounds(277, 353, 133, 26);
+		btn_MakeAnAccount.setBounds(277, 373, 133, 26);
 		panel.add(btn_MakeAnAccount);
+		
+		btn_MakeAnAccount.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        
+		        dispose();
+		        new Customer_Registration().setVisible(true);
+		    }
+		});
 	}
 }
