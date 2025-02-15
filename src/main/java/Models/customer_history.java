@@ -1,8 +1,11 @@
 package Models;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -16,6 +19,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import javax.swing.border.BevelBorder;
 
 public class customer_history extends JFrame {
@@ -116,50 +120,61 @@ public class customer_history extends JFrame {
 		btn_Booking.setBounds(172, 67, 224, 56);
 		panel.add(btn_Booking);
 		
+		btn_Booking.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        
+		        dispose();
+		        new customer_booking().setVisible(true);
+		    }
+		});
+		
 		JButton btn_Calendar = new JButton("HISTORY");
-		btn_Calendar.setForeground(new Color(85, 45, 20));
+		btn_Calendar.setForeground(new Color(229, 167, 86));
 		btn_Calendar.setFont(new Font("Corbel Light", Font.BOLD, 25));
 		btn_Calendar.setBorderPainted(false);
 		btn_Calendar.setFocusPainted(false);
-		btn_Calendar.setBackground(new Color(229, 167, 86));
+		btn_Calendar.setBackground(new Color(139, 76, 33));
 		btn_Calendar.setBounds(406, 67, 224, 56);
 		panel.add(btn_Calendar);
+		
+		JButton btn_Exit = new JButton("EXIT");
+		btn_Exit.setForeground(new Color(85, 45, 20));
+		btn_Exit.setFont(new Font("Corbel Light", Font.BOLD, 25));
+		btn_Exit.setFocusPainted(false);
+		btn_Exit.setBorderPainted(false);
+		btn_Exit.setBackground(new Color(229, 167, 86));
+		btn_Exit.setBounds(640, 67, 190, 56);
+		panel.add(btn_Exit);
+		
+		btn_Exit.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        
+		        dispose();
+		        new Login().setVisible(true);
+		    }
+		});
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(242, 209, 146));
 		panel_1.setBorder(new LineBorder(new Color(85, 45, 20), 6));
-		panel_1.setBounds(85, 166, 1161, 519);
+		panel_1.setBounds(70, 166, 1180, 519);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setViewportBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		scrollPane.setBounds(34, 35, 1090, 450);
+		scrollPane.setBounds(20, 35, 1140, 450);
 		panel_1.add(scrollPane);
 		
 		table = new JTable();
-		table.setBackground(new Color(217, 217, 217));
+		table.setBackground(new Color(252, 230, 188));
+		table.setForeground(new Color(85, 45, 20));
+		table.setFont(new Font("Corbel Light", Font.BOLD, 15));
 		table.setSurrendersFocusOnKeystroke(true);
-		table.setFont(new Font("Dubai", Font.BOLD, 14));
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
 				{null, null, null, null, null, null, null, null},
 				{null, null, null, null, null, null, null, null},
 				{null, null, null, null, null, null, null, null},
@@ -169,5 +184,13 @@ public class customer_history extends JFrame {
 			}
 		));
 		scrollPane.setViewportView(table);
+		
+		JTableHeader tableHeader = table.getTableHeader();
+		tableHeader.setFont(new Font("Corbel Light", Font.BOLD, 17));
+		tableHeader.setPreferredSize(new Dimension(tableHeader.getWidth(), 30));
+		tableHeader.setBackground(new Color(85, 45, 20));
+		tableHeader.setForeground(new Color(252, 230, 188));
+		table.setRowHeight(25);
+		table.setGridColor(new Color(85, 45, 20));
 	}
 }

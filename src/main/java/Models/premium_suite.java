@@ -3,6 +3,8 @@ package Models;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -142,19 +144,6 @@ public class premium_suite extends JFrame {
 		btn_History.setBounds(415, 66, 224, 56);
 		panel.add(btn_History);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		panel_1.setBackground(new Color(242, 209, 146));
-		panel_1.setBounds(44, 163, 210, 66);
-		panel.add(panel_1);
-		panel_1.setLayout(null);
-		
-		JButton btnNewButton = new JButton("SINGLE BED ROOM");
-		btnNewButton.setBackground(new Color(229, 167, 86));
-		btnNewButton.setFont(new Font("Dubai", Font.BOLD, 15));
-		btnNewButton.setBounds(10, 10, 190, 46);
-		panel_1.add(btnNewButton);
-		
 		JPanel panel_1_3_1 = new JPanel();
 		panel_1_3_1.setBorder(new LineBorder(new Color(139, 76, 33), 7));
 		panel_1_3_1.setBackground(new Color(242, 209, 146));
@@ -259,6 +248,28 @@ public class premium_suite extends JFrame {
 		btnNewButton_1.setBounds(10, 10, 134, 36);
 		panel_6.add(btnNewButton_1);
 		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		panel_1.setBackground(new Color(242, 209, 146));
+		panel_1.setBounds(44, 163, 210, 66);
+		panel.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JButton btnNewButton = new JButton("SINGLE BED ROOM");
+		btnNewButton.setBackground(new Color(229, 167, 86));
+		btnNewButton.setFont(new Font("Dubai", Font.BOLD, 15));
+		btnNewButton.setBounds(10, 10, 190, 46);
+		panel_1.add(btnNewButton);
+		
+		btnNewButton.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        
+		        dispose();
+		        new customer_booking().setVisible(true);
+		    }
+		});
+		
 		JPanel panel_1_1 = new JPanel();
 		panel_1_1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		panel_1_1.setLayout(null);
@@ -271,6 +282,15 @@ public class premium_suite extends JFrame {
 		btnDoubleBedRoom.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnDoubleBedRoom.setBounds(10, 10, 190, 46);
 		panel_1_1.add(btnDoubleBedRoom);
+		
+		btnDoubleBedRoom.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        
+		        dispose();
+		        new double_bedroom().setVisible(true);
+		    }
+		});
 		
 		JPanel panel_1_1_1 = new JPanel();
 		panel_1_1_1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
@@ -297,6 +317,15 @@ public class premium_suite extends JFrame {
 		btnNewButton_1_1_1.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnNewButton_1_1_1.setBounds(10, 10, 190, 46);
 		panel_1_1_1_1.add(btnNewButton_1_1_1);
+		
+		btnNewButton_1_1_1.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        
+		        dispose();
+		        new deluxe_penthouse().setVisible(true);
+		    }
+		});
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(48, 239, 897, 463);
