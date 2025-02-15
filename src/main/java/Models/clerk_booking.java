@@ -13,8 +13,10 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class Clerk_Booking extends JFrame {
+public class clerk_booking extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -26,7 +28,7 @@ public class Clerk_Booking extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Clerk_Booking frame = new Clerk_Booking();
+					clerk_booking frame = new clerk_booking();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,7 +40,7 @@ public class Clerk_Booking extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Clerk_Booking() {
+	public clerk_booking() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1334, 782);
 		contentPane = new JPanel();
@@ -130,6 +132,10 @@ public class Clerk_Booking extends JFrame {
 		panel.add(btn_Rooms);
 		
 		JButton btn_Customers = new JButton("CUSTOMERS");
+		btn_Customers.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btn_Customers.setForeground(new Color(85, 45, 20));
 		btn_Customers.setFont(new Font("Corbel Light", Font.BOLD, 25));
 		btn_Customers.setFocusPainted(false);
@@ -145,5 +151,4 @@ public class Clerk_Booking extends JFrame {
 		panel.add(panel_1);
 		
 	}
-
 }

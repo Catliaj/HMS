@@ -16,7 +16,7 @@ import javax.swing.JButton;
 
 import java.awt.Color;
 
-public class Customer_Registration extends JFrame {
+public class customer_registration extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -35,7 +35,7 @@ public class Customer_Registration extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Customer_Registration frame = new Customer_Registration();
+					customer_registration frame = new customer_registration();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,7 +47,7 @@ public class Customer_Registration extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Customer_Registration() {
+	public customer_registration() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 699, 527);
 		contentPane = new JPanel();
@@ -58,7 +58,7 @@ public class Customer_Registration extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lbl_Background = new JLabel("");
-		lbl_Background.setIcon(new ImageIcon(Customer_Registration.class.getResource("/Resources/REGISTRATION BACKGROUND.png")));
+		lbl_Background.setIcon(new ImageIcon(customer_registration.class.getResource("/Resources/REGISTRATION BACKGROUND.png")));
 		lbl_Background.setBounds(0, 0, 685, 490);
 		contentPane.add(lbl_Background);
 		

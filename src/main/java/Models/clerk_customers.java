@@ -14,7 +14,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
-public class Clerk_Customers extends JFrame {
+public class clerk_customers extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -26,7 +26,7 @@ public class Clerk_Customers extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Clerk_Customers frame = new Clerk_Customers();
+					clerk_customers frame = new clerk_customers();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,7 +38,7 @@ public class Clerk_Customers extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Clerk_Customers() {
+	public clerk_customers() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1334, 782);
 		contentPane = new JPanel();

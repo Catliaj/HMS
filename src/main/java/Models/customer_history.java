@@ -13,11 +13,16 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.border.BevelBorder;
 
-public class Customer_History extends JFrame {
+public class customer_history extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -26,7 +31,7 @@ public class Customer_History extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Customer_History frame = new Customer_History();
+					customer_history frame = new customer_history();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,7 +43,7 @@ public class Customer_History extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Customer_History() {
+	public customer_history() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1334, 782);
 		contentPane = new JPanel();
@@ -111,7 +116,7 @@ public class Customer_History extends JFrame {
 		btn_Booking.setBounds(172, 67, 224, 56);
 		panel.add(btn_Booking);
 		
-		JButton btn_Calendar = new JButton("CALENDAR");
+		JButton btn_Calendar = new JButton("HISTORY");
 		btn_Calendar.setForeground(new Color(85, 45, 20));
 		btn_Calendar.setFont(new Font("Corbel Light", Font.BOLD, 25));
 		btn_Calendar.setBorderPainted(false);
@@ -120,20 +125,49 @@ public class Customer_History extends JFrame {
 		btn_Calendar.setBounds(406, 67, 224, 56);
 		panel.add(btn_Calendar);
 		
-		JButton btn_History = new JButton("HISTORY");
-		btn_History.setForeground(new Color(229, 167, 86));
-		btn_History.setFont(new Font("Corbel Light", Font.BOLD, 25));
-		btn_History.setBorderPainted(false);
-		btn_History.setFocusPainted(false);
-		btn_History.setBackground(new Color(85, 45, 20));
-		btn_History.setBounds(640, 67, 224, 56);
-		panel.add(btn_History);
-		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(242, 209, 146));
 		panel_1.setBorder(new LineBorder(new Color(85, 45, 20), 6));
-		panel_1.setBounds(348, 222, 422, 395);
+		panel_1.setBounds(85, 166, 1161, 519);
 		panel.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setViewportBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		scrollPane.setBounds(34, 35, 1090, 450);
+		panel_1.add(scrollPane);
+		
+		table = new JTable();
+		table.setBackground(new Color(217, 217, 217));
+		table.setSurrendersFocusOnKeystroke(true);
+		table.setFont(new Font("Dubai", Font.BOLD, 14));
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+			},
+			new String[] {
+				"ROOM", "ROOM TYPE", "PRICE", "CHECK-IN DATE", "CHECK-OUT DATE", "ROOM STATUS", "BOOKING STATUS", "ACTION"
+			}
+		));
+		scrollPane.setViewportView(table);
 	}
-
 }
