@@ -24,6 +24,9 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
+import Modules.ClerkBooking_Backend;
+import Modules.ClerkCustomers_Backend;
+
 public class clerk_customers extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -35,6 +38,7 @@ public class clerk_customers extends JFrame {
 	private JTextField textField_Fname;
 	private JTextField textField_MiddleIn;
 	private JTextField textField_Surname;
+	private ClerkCustomers_Backend backend;
 
 	/**
 	 * Launch the application.
@@ -64,6 +68,8 @@ public class clerk_customers extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		backend = new ClerkCustomers_Backend();
 		
 		JLabel lbl_Background = new JLabel("");
 		lbl_Background.setIcon(new ImageIcon(Clerk_Dashboard.class.getResource("/Resources/CLERK BACKGROUND.png")));
@@ -234,10 +240,11 @@ public class clerk_customers extends JFrame {
 				{null, null, null, null, null, "Delete"},
 			},
 			new String[] {
-				"Room", "Room Type", "Price", "Room Status", "Booking Status", ""
+				"First Name", "M.I.", "Surname", "Email", "Phone Number", ""
 			}
 		));
 		scrollPane.setViewportView(table);
+		populateTable();
 		
 		JTableHeader tableHeader = table.getTableHeader();
 		tableHeader.setFont(new Font("Corbel Light", Font.BOLD, 17));
@@ -373,4 +380,8 @@ public class clerk_customers extends JFrame {
 		btn_Update.setBorder(BorderFactory.createLineBorder(new Color(139, 76, 33), 2));
 		
 	}
+	
+	private void populateTable() {
+        backend.populateCustomersTable(table);
+    }
 }
