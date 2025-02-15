@@ -147,7 +147,7 @@ public class Customer_Login extends JFrame {
 				if(authentication.loginSuccess())
 				{
 					dispose();
-					new Customer_Booking().setVisible(true);
+					new customer_booking().setVisible(true);
 				}
 				else
 				{
@@ -192,7 +192,7 @@ public class Customer_Login extends JFrame {
 		    public void actionPerformed(ActionEvent e) {
 		        
 		        dispose();
-		        new Customer_Registration().setVisible(true);
+		        new customer_registration().setVisible(true);
 		    }
 		});
 	}

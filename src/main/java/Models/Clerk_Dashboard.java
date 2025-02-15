@@ -127,7 +127,7 @@ public class Clerk_Dashboard extends JFrame {
 		    public void actionPerformed(ActionEvent e) {
 		        
 		        dispose();
-		        new Clerk_Booking().setVisible(true);
+		        new clerk_booking().setVisible(true);
 		    }
 		});
 		
@@ -145,7 +145,7 @@ public class Clerk_Dashboard extends JFrame {
 		    public void actionPerformed(ActionEvent e) {
 		        
 		        dispose();
-		        new Clerk_Rooms().setVisible(true);
+		        new clerk_Rooms().setVisible(true);
 		    }
 		});
 		
@@ -163,7 +163,7 @@ public class Clerk_Dashboard extends JFrame {
 		    public void actionPerformed(ActionEvent e) {
 		        
 		        dispose();
-		        new Clerk_Customers().setVisible(true);
+		        new clerk_customers().setVisible(true);
 		    }
 		});
 		

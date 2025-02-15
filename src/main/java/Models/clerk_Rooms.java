@@ -24,7 +24,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
-public class Clerk_Rooms extends JFrame {
+public class clerk_Rooms extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -43,7 +43,7 @@ public class Clerk_Rooms extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Clerk_Rooms frame = new Clerk_Rooms();
+					clerk_Rooms frame = new clerk_Rooms();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -55,7 +55,7 @@ public class Clerk_Rooms extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Clerk_Rooms() {
+	public clerk_Rooms() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1334, 782);
 		contentPane = new JPanel();
@@ -151,7 +151,7 @@ public class Clerk_Rooms extends JFrame {
 		    public void actionPerformed(ActionEvent e) {
 		        
 		        dispose();
-		        new Clerk_Booking().setVisible(true);
+		        new clerk_booking().setVisible(true);
 		    }
 		});
 		
@@ -178,7 +178,7 @@ public class Clerk_Rooms extends JFrame {
 		    public void actionPerformed(ActionEvent e) {
 		        
 		        dispose();
-		        new Clerk_Customers().setVisible(true);
+		        new clerk_customers().setVisible(true);
 		    }
 		});
 		

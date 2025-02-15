@@ -19,7 +19,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import com.toedter.calendar.JDateChooser;
 
-public class customer_booking extends JFrame {
+public class deluxe_penthouse extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -48,7 +48,7 @@ public class customer_booking extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					customer_booking frame = new customer_booking();
+					deluxe_penthouse frame = new deluxe_penthouse();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -60,7 +60,7 @@ public class customer_booking extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public customer_booking() {
+	public deluxe_penthouse() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1334, 782);
 		contentPane = new JPanel();
@@ -318,7 +318,7 @@ public class customer_booking extends JFrame {
 		JPanel panel_5 = new JPanel();
 		panel_5.setLayout(null);
 		panel_5.setBorder(new LineBorder(new Color(135, 94, 31), 5));
-		panel_5.setBackground(new Color(242, 209, 146));
+		panel_5.setBackground(new Color(190, 135, 33));
 		panel_5.setBounds(272, 10, 575, 191);
 		panel_4.add(panel_5);
 		
@@ -370,14 +370,14 @@ public class customer_booking extends JFrame {
 		panel_5.add(btn_select);
 		
 		JPanel panel_7 = new JPanel();
-		panel_7.setBackground(new Color(242, 209, 146));
+		panel_7.setBackground(new Color(190, 135, 33));
 		panel_7.setLayout(null);
 		panel_7.setBorder(new LineBorder(new Color(135, 94, 31), 5));
 		panel_7.setBounds(10, 10, 252, 191);
 		panel_4.add(panel_7);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(customer_booking.class.getResource("/Resources/SB1.png")));
+		lblNewLabel.setIcon(new ImageIcon(deluxe_penthouse.class.getResource("/Resources/DP1.png")));
 		lblNewLabel.setBounds(10, 10, 230, 171);
 		panel_7.add(lblNewLabel);
 		
@@ -391,7 +391,7 @@ public class customer_booking extends JFrame {
 		JPanel panel_5_1 = new JPanel();
 		panel_5_1.setLayout(null);
 		panel_5_1.setBorder(new LineBorder(new Color(135, 94, 31), 5));
-		panel_5_1.setBackground(new Color(242, 209, 146));
+		panel_5_1.setBackground(new Color(190, 135, 33));
 		panel_5_1.setBounds(272, 10, 575, 191);
 		panel_4_1.add(panel_5_1);
 		
@@ -445,12 +445,12 @@ public class customer_booking extends JFrame {
 		JPanel panel_7_1 = new JPanel();
 		panel_7_1.setLayout(null);
 		panel_7_1.setBorder(new LineBorder(new Color(135, 94, 31), 5));
-		panel_7_1.setBackground(new Color(242, 209, 146));
+		panel_7_1.setBackground(new Color(190, 135, 33));
 		panel_7_1.setBounds(10, 10, 252, 191);
 		panel_4_1.add(panel_7_1);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(customer_booking.class.getResource("/Resources/SB2.png")));
+		lblNewLabel_1.setIcon(new ImageIcon(deluxe_penthouse.class.getResource("/Resources/DP2.png")));
 		lblNewLabel_1.setBounds(10, 10, 230, 171);
 		panel_7_1.add(lblNewLabel_1);
 		
