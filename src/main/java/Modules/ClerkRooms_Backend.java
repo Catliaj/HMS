@@ -1,21 +1,24 @@
 package Modules;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class ClerkBooking_Backend {
+public class ClerkRooms_Backend {
+	private DB_Connections dbConnection;
 
-    private DB_Connections dbConnection;
-
-    public ClerkBooking_Backend() {
+    public ClerkRooms_Backend() {
         dbConnection = DB_Connections.getDBConnection();
     }
 
-    public void populateBookingTable(JTable table) {
-        String query = "SELECT u.first_name, u.surname, " +
-                "b.room_id, r.room_type, r.price, " +
-                "b.check_in_date, b.check_out_date, b.status " +
+    public void populateRoomsTable(JTable table) {
+        String query = "SELECT " +
+                "room_id, room_type, price, " +
+                "b.check_in_date, b.check_out_date, status " +
                 "FROM booking b " +
                 "JOIN rooms r ON b.room_id = r.room_id " +
                 "JOIN users u ON b.user_id = u.user_id";

@@ -1,23 +1,40 @@
 package Models;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 public class Clerk_Customers extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JTable table;
+	private JTextField textField_Username;
+	private JTextField textField_PhoneNum;
+	private JTextField textField_Email;
+	private JTextField textField_Fname;
+	private JTextField textField_MiddleIn;
+	private JTextField textField_Surname;
 
 	/**
 	 * Launch the application.
@@ -111,6 +128,15 @@ public class Clerk_Customers extends JFrame {
 		btn_Dashboard.setBounds(172, 66, 224, 56);
 		panel.add(btn_Dashboard);
 		
+		btn_Dashboard.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        
+		        dispose();
+		        new Clerk_Dashboard().setVisible(true);
+		    }
+		});
+
 		JButton btn_Booking = new JButton("BOOKING");
 		btn_Booking.setForeground(new Color(85, 45, 20));
 		btn_Booking.setFont(new Font("Corbel Light", Font.BOLD, 25));
@@ -119,6 +145,15 @@ public class Clerk_Customers extends JFrame {
 		btn_Booking.setBackground(new Color(252, 230, 188));
 		btn_Booking.setBounds(406, 66, 224, 56);
 		panel.add(btn_Booking);
+		
+		btn_Booking.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        
+		        dispose();
+		        new Clerk_Booking().setVisible(true);
+		    }
+		});
 		
 		JButton btn_Rooms = new JButton("ROOMS");
 		btn_Rooms.setForeground(new Color(85, 45, 20));
@@ -129,6 +164,15 @@ public class Clerk_Customers extends JFrame {
 		btn_Rooms.setBounds(640, 66, 224, 56);
 		panel.add(btn_Rooms);
 		
+		btn_Rooms.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        
+		        dispose();
+		        new Clerk_Rooms().setVisible(true);
+		    }
+		});
+		
 		JButton btn_Customers = new JButton("CUSTOMERS");
 		btn_Customers.setForeground(new Color(252, 230, 188));
 		btn_Customers.setFont(new Font("Corbel Light", Font.BOLD, 25));
@@ -138,12 +182,195 @@ public class Clerk_Customers extends JFrame {
 		btn_Customers.setBounds(875, 67, 224, 56);
 		panel.add(btn_Customers);
 		
+		JButton btn_Exit = new JButton("EXIT");
+		btn_Exit.setForeground(new Color(85, 45, 20));
+		btn_Exit.setFont(new Font("Corbel Light", Font.BOLD, 25));
+		btn_Exit.setFocusPainted(false);
+		btn_Exit.setBorderPainted(false);
+		btn_Exit.setBackground(new Color(252, 230, 188));
+		btn_Exit.setBounds(1110, 66, 190, 56);
+		panel.add(btn_Exit);
+		
+		btn_Exit.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        
+		        dispose();
+		        new Login().setVisible(true);
+		    }
+		});
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setForeground(new Color(139, 76, 33));
+		comboBox.setFont(new Font("Corbel Light", Font.BOLD, 21));
+		((JLabel) comboBox.getRenderer()).setVerticalAlignment(SwingConstants.TOP);
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Sort by ...", "Customers", "Rooms", "Check-in Date", "Check-out Date", "Status"}));
+		comboBox.setBackground(new Color(252, 230, 188));
+		comboBox.setBorder(BorderFactory.createLineBorder(new Color(139, 76, 33), 4));
+		comboBox.setBounds(75, 140, 270, 39);
+		panel.add(comboBox);
+		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 204, 0));
 		panel_1.setBorder(new LineBorder(new Color(85, 45, 20), 6));
-		panel_1.setBounds(348, 222, 422, 395);
+		panel_1.setBounds(75, 188, 1171, 374);
 		panel.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(30, 20, 1109, 334);
+		panel_1.add(scrollPane);
+		
+		table = new JTable();
+		table.setBackground(new Color(252, 230, 188));
+		table.setForeground(new Color(85, 45, 20));
+		table.setFont(new Font("Corbel Light", Font.BOLD, 15));
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null, "Delete"},
+				{null, null, null, null, null, "Delete"},
+				{null, null, null, null, null, "Delete"},
+				{null, null, null, null, null, "Delete"},
+				{null, null, null, null, null, "Delete"},
+			},
+			new String[] {
+				"Room", "Room Type", "Price", "Room Status", "Booking Status", ""
+			}
+		));
+		scrollPane.setViewportView(table);
+		
+		JTableHeader tableHeader = table.getTableHeader();
+		tableHeader.setFont(new Font("Corbel Light", Font.BOLD, 17));
+		tableHeader.setPreferredSize(new Dimension(tableHeader.getWidth(), 30));
+		tableHeader.setBackground(new Color(85, 45, 20));
+		tableHeader.setForeground(new Color(252, 230, 188));
+		table.setRowHeight(25);
+		table.setGridColor(new Color(85, 45, 20));
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setLayout(null);
+		panel_2.setBorder(new LineBorder(new Color(85, 45, 20), 6));
+		panel_2.setBackground(new Color(255, 204, 0));
+		panel_2.setBounds(160, 567, 1000, 143);
+		panel.add(panel_2);
+		
+		JLabel lbl_Username = new JLabel("Username:");
+		lbl_Username.setVerticalAlignment(SwingConstants.TOP);
+		lbl_Username.setHorizontalAlignment(SwingConstants.LEFT);
+		lbl_Username.setForeground(new Color(85, 45, 20));
+		lbl_Username.setFont(new Font("Corbel Light", Font.BOLD, 21));
+		lbl_Username.setBounds(47, 13, 111, 22);
+		panel_2.add(lbl_Username);
+		
+		textField_Username = new JTextField();
+		textField_Username.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textField_Username.setBackground(new Color(252, 230, 188));
+		textField_Username.setForeground(new Color(85, 45, 20));
+		textField_Username.setBorder(BorderFactory.createLineBorder(new Color(229, 167, 86), 2));
+		textField_Username.setBounds(47, 35, 207, 33);
+		panel_2.add(textField_Username);
+		textField_Username.setColumns(10);
+		
+		JLabel lbl_Email = new JLabel("Email:");
+		lbl_Email.setVerticalAlignment(SwingConstants.TOP);
+		lbl_Email.setHorizontalAlignment(SwingConstants.LEFT);
+		lbl_Email.setForeground(new Color(85, 45, 20));
+		lbl_Email.setFont(new Font("Corbel Light", Font.BOLD, 21));
+		lbl_Email.setBounds(296, 13, 126, 22);
+		panel_2.add(lbl_Email);
+		
+		textField_Email = new JTextField();
+		textField_Email.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textField_Email.setForeground(new Color(85, 45, 20));
+		textField_Email.setColumns(10);
+		textField_Email.setBorder(BorderFactory.createLineBorder(new Color(229, 167, 86), 2));
+		textField_Email.setBackground(new Color(252, 230, 188));
+		textField_Email.setBounds(296, 35, 211, 33);
+		panel_2.add(textField_Email);
+		
+		JLabel lbl_PhoneNum = new JLabel("Phone Number:");
+		lbl_PhoneNum.setVerticalAlignment(SwingConstants.TOP);
+		lbl_PhoneNum.setHorizontalAlignment(SwingConstants.LEFT);
+		lbl_PhoneNum.setForeground(new Color(85, 45, 20));
+		lbl_PhoneNum.setFont(new Font("Corbel Light", Font.BOLD, 21));
+		lbl_PhoneNum.setBounds(542, 13, 150, 22);
+		panel_2.add(lbl_PhoneNum);
+		
+		textField_PhoneNum = new JTextField();
+		textField_PhoneNum.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textField_PhoneNum.setBackground(new Color(252, 230, 188));
+		textField_PhoneNum.setForeground(new Color(85, 45, 20));
+		textField_PhoneNum.setBorder(BorderFactory.createLineBorder(new Color(229, 167, 86), 2));
+		textField_PhoneNum.setBounds(542, 35, 216, 33);
+		panel_2.add(textField_PhoneNum);
+		
+		JLabel lbl_Fname = new JLabel("First Name:");
+		lbl_Fname.setVerticalAlignment(SwingConstants.TOP);
+		lbl_Fname.setHorizontalAlignment(SwingConstants.LEFT);
+		lbl_Fname.setForeground(new Color(85, 45, 20));
+		lbl_Fname.setFont(new Font("Corbel Light", Font.BOLD, 21));
+		lbl_Fname.setBounds(47, 77, 150, 22);
+		panel_2.add(lbl_Fname);
+		
+		textField_Fname = new JTextField();
+		textField_Fname.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textField_Fname.setForeground(new Color(85, 45, 20));
+		textField_Fname.setBorder(BorderFactory.createLineBorder(new Color(229, 167, 86), 2));
+		textField_Fname.setBackground(new Color(252, 230, 188));
+		textField_Fname.setBounds(47, 99, 207, 33);
+		panel_2.add(textField_Fname);
+		
+		JLabel lbl_MiddleIn = new JLabel("Middle Initial:");
+		lbl_MiddleIn.setVerticalAlignment(SwingConstants.TOP);
+		lbl_MiddleIn.setHorizontalAlignment(SwingConstants.LEFT);
+		lbl_MiddleIn.setForeground(new Color(85, 45, 20));
+		lbl_MiddleIn.setFont(new Font("Corbel Light", Font.BOLD, 21));
+		lbl_MiddleIn.setBounds(296, 77, 126, 22);
+		panel_2.add(lbl_MiddleIn);
+		
+		textField_MiddleIn = new JTextField();
+		textField_MiddleIn.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textField_MiddleIn.setForeground(new Color(85, 45, 20));
+		textField_MiddleIn.setBorder(BorderFactory.createLineBorder(new Color(229, 167, 86), 2));
+		textField_MiddleIn.setBackground(new Color(252, 230, 188));
+		textField_MiddleIn.setBounds(296, 99, 123, 33);
+		panel_2.add(textField_MiddleIn);
+		
+		JLabel lbl_Surname = new JLabel("Surname:");
+		lbl_Surname.setVerticalAlignment(SwingConstants.TOP);
+		lbl_Surname.setHorizontalAlignment(SwingConstants.LEFT);
+		lbl_Surname.setForeground(new Color(85, 45, 20));
+		lbl_Surname.setFont(new Font("Corbel Light", Font.BOLD, 21));
+		lbl_Surname.setBounds(542, 77, 126, 22);
+		panel_2.add(lbl_Surname);
+		
+		textField_Surname = new JTextField();
+		textField_Surname.setForeground(new Color(85, 45, 20));
+		textField_Surname.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textField_Surname.setBorder(BorderFactory.createLineBorder(new Color(229, 167, 86), 2));
+		textField_Surname.setBackground(new Color(252, 230, 188));
+		textField_Surname.setBounds(542, 99, 216, 33);
+		panel_2.add(textField_Surname);
+		
+		JButton btn_Add = new JButton("ADD");
+		btn_Add.setVerticalAlignment(SwingConstants.BOTTOM);
+		btn_Add.setFocusPainted(false);
+		btn_Add.setForeground(new Color(242, 209, 146));
+		btn_Add.setFont(new Font("Corbel Light", Font.BOLD, 15));
+		btn_Add.setBorder(BorderFactory.createLineBorder(new Color(139, 76, 33), 2));
+		btn_Add.setBackground(new Color(85, 45, 20));
+		btn_Add.setBounds(805, 37, 147, 31);
+		panel_2.add(btn_Add);
+		
+		JButton btn_Update = new JButton("UPDATE");
+		btn_Update.setBounds(805, 84, 147, 31);
+		panel_2.add(btn_Update);
+		btn_Update.setVerticalAlignment(SwingConstants.BOTTOM);
+		btn_Update.setFocusPainted(false);
+		btn_Update.setFont(new Font("Corbel Light", Font.BOLD, 15));
+		btn_Update.setForeground(new Color(242, 209, 146));
+		btn_Update.setBackground(new Color(85, 45, 20));
+		btn_Update.setBorder(BorderFactory.createLineBorder(new Color(139, 76, 33), 2));
 		
 	}
-
 }
