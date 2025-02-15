@@ -1,25 +1,40 @@
 package Models;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+
+import Modules.ClerkBooking_Backend;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 
 public class clerk_booking extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JTable table;
+    private ClerkBooking_Backend backend;
 
 	/**
 	 * Launch the application.
@@ -49,6 +64,8 @@ public class clerk_booking extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		backend = new ClerkBooking_Backend();
 		
 		JLabel lbl_Background = new JLabel("");
 		lbl_Background.setIcon(new ImageIcon(Clerk_Dashboard.class.getResource("/Resources/CLERK BACKGROUND.png")));
@@ -113,6 +130,15 @@ public class clerk_booking extends JFrame {
 		btn_Dashboard.setBounds(172, 66, 224, 56);
 		panel.add(btn_Dashboard);
 		
+		btn_Dashboard.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        
+		        dispose();
+		        new Clerk_Dashboard().setVisible(true);
+		    }
+		});
+		
 		JButton btn_Booking = new JButton("BOOKING");
 		btn_Booking.setForeground(new Color(252, 230, 188));
 		btn_Booking.setFont(new Font("Corbel Light", Font.BOLD, 25));
@@ -131,6 +157,15 @@ public class clerk_booking extends JFrame {
 		btn_Rooms.setBounds(640, 66, 224, 56);
 		panel.add(btn_Rooms);
 		
+		btn_Rooms.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        
+		        dispose();
+		        new clerk_Rooms().setVisible(true);
+		    }
+		});
+		
 		JButton btn_Customers = new JButton("CUSTOMERS");
 		btn_Customers.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -144,11 +179,86 @@ public class clerk_booking extends JFrame {
 		btn_Customers.setBounds(875, 66, 224, 56);
 		panel.add(btn_Customers);
 		
+		btn_Customers.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        
+		        dispose();
+		        new clerk_customers().setVisible(true);
+		    }
+		});
+		
+		JButton btn_Exit = new JButton("EXIT");
+		btn_Exit.setForeground(new Color(85, 45, 20));
+		btn_Exit.setFont(new Font("Corbel Light", Font.BOLD, 25));
+		btn_Exit.setFocusPainted(false);
+		btn_Exit.setBorderPainted(false);
+		btn_Exit.setBackground(new Color(252, 230, 188));
+		btn_Exit.setBounds(1110, 66, 190, 56);
+		panel.add(btn_Exit);
+		
+		btn_Exit.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        
+		        dispose();
+		        new Login().setVisible(true);
+		    }
+		});
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setForeground(new Color(139, 76, 33));
+		comboBox.setFont(new Font("Corbel Light", Font.BOLD, 21));
+		((JLabel) comboBox.getRenderer()).setVerticalAlignment(SwingConstants.TOP);
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Sort by ...", "Customers", "Rooms", "Check-in Date", "Check-out Date", "Status"}));
+		comboBox.setBackground(new Color(252, 230, 188));
+		comboBox.setBorder(BorderFactory.createLineBorder(new Color(139, 76, 33), 4));
+		comboBox.setBounds(75, 160, 270, 39);
+		panel.add(comboBox);
+		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 204, 0));
 		panel_1.setBorder(new LineBorder(new Color(85, 45, 20), 6));
-		panel_1.setBounds(348, 222, 422, 395);
+		panel_1.setBounds(75, 221, 1171, 472);
 		panel.add(panel_1);
+		panel_1.setLayout(null);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(30, 22, 1109, 430);
+		panel_1.add(scrollPane);
+		
+		table = new JTable();
+		table.setBackground(new Color(252, 230, 188));
+		table.setForeground(new Color(85, 45, 20));
+		table.setFont(new Font("Corbel Light", Font.BOLD, 15));
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null, null, null, "Delete"},
+				{null, null, null, null, null, null, null, "Delete"},
+				{null, null, null, null, null, null, null, "Delete"},
+				{null, null, null, null, null, null, null, "Delete"},
+				{null, null, null, null, null, null, null, "Delete"},
+			},
+			new String[] {
+				"Customer Name", "Room", "Room Type", "Price", "Check-in Date", "Check-out Date", "Room Status", ""
+			}
+		));
+		scrollPane.setViewportView(table);
+		populateTable();
+		
+		JTableHeader tableHeader = table.getTableHeader();
+		tableHeader.setFont(new Font("Corbel Light", Font.BOLD, 17));
+		tableHeader.setPreferredSize(new Dimension(tableHeader.getWidth(), 30));
+		tableHeader.setBackground(new Color(85, 45, 20));
+		tableHeader.setForeground(new Color(252, 230, 188));
+		table.setRowHeight(25);
+		table.setGridColor(new Color(85, 45, 20));
+	
 	}
+
+	
+	private void populateTable() {
+        backend.populateBookingTable(table);
+    }
+
 }

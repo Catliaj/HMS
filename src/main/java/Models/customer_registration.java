@@ -2,6 +2,8 @@ package Models;
 
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -205,21 +207,32 @@ public class customer_registration extends JFrame {
 		JButton btn_Register = new JButton("REGISTER");
 		btn_Register.setVerticalAlignment(SwingConstants.BOTTOM);
 		btn_Register.setFocusPainted(false);
-		btn_Register.setFont(new Font("Corbel Light", Font.BOLD, 15));
 		btn_Register.setForeground(new Color(242, 209, 146));
-		btn_Register.setBackground(new Color(85, 45, 20));
+		btn_Register.setFont(new Font("Corbel Light", Font.BOLD, 15));
 		btn_Register.setBorder(BorderFactory.createLineBorder(new Color(139, 76, 33), 2));
-		btn_Register.setBounds(346, 370, 108, 23);
+		btn_Register.setBackground(new Color(85, 45, 20));
+		btn_Register.setBounds(231, 370, 108, 23);
 		panel.add(btn_Register);
 		
 		JButton btn_Back = new JButton("BACK");
 		btn_Back.setVerticalAlignment(SwingConstants.BOTTOM);
 		btn_Back.setFocusPainted(false);
-		btn_Back.setForeground(new Color(242, 209, 146));
 		btn_Back.setFont(new Font("Corbel Light", Font.BOLD, 15));
-		btn_Back.setBorder(BorderFactory.createLineBorder(new Color(139, 76, 33), 2));
+		btn_Back.setForeground(new Color(242, 209, 146));
 		btn_Back.setBackground(new Color(85, 45, 20));
-		btn_Back.setBounds(231, 370, 108, 23);
+		btn_Back.setBorder(BorderFactory.createLineBorder(new Color(139, 76, 33), 2));
+		btn_Back.setBounds(346, 370, 108, 23);
 		panel.add(btn_Back);
+		
+		btn_Back.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        
+		        dispose();
+		        new Customer_Login().setVisible(true);
+		    }
+		});
+		
+		
 	}
 }
