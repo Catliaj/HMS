@@ -17,6 +17,8 @@ import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDayChooser;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Calendar;
@@ -138,6 +140,24 @@ public class customer_calendar extends JFrame {
 		btn_History.setBackground(new Color(229, 167, 86));
 		btn_History.setBounds(640, 67, 224, 56);
 		panel.add(btn_History);
+		
+		JButton btn_Exit = new JButton("EXIT");
+		btn_Exit.setForeground(new Color(85, 45, 20));
+		btn_Exit.setFont(new Font("Corbel Light", Font.BOLD, 25));
+		btn_Exit.setFocusPainted(false);
+		btn_Exit.setBorderPainted(false);
+		btn_Exit.setBackground(new Color(229, 167, 86));
+		btn_Exit.setBounds(874, 67, 190, 56);
+		panel.add(btn_Exit);
+		
+		btn_Exit.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        
+		        dispose();
+		        new Login().setVisible(true);
+		    }
+		});
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(242, 209, 146));
