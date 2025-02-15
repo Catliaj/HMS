@@ -322,8 +322,17 @@ public class clerk_Rooms extends JFrame {
 		textField_Photo.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		textField_Photo.setBorder(BorderFactory.createLineBorder(new Color(229, 167, 86), 2));
 		textField_Photo.setBackground(new Color(252, 230, 188));
-		textField_Photo.setBounds(40, 402, 278, 33);
+		textField_Photo.setBounds(40, 402, 224, 33);
 		panel_1.add(textField_Photo);
+		
+		JButton btn_Photo = new JButton("Upload");
+		btn_Photo.setForeground(new Color(242, 209, 146));
+		btn_Photo.setFont(new Font("Corbel Light", Font.BOLD, 9));
+		btn_Photo.setFocusPainted(false);
+		btn_Photo.setBorder(BorderFactory.createLineBorder(new Color(229, 167, 86), 2));
+		btn_Photo.setBackground(new Color(85, 45, 20));
+		btn_Photo.setBounds(271, 406, 47, 22);
+		panel_1.add(btn_Photo);
 		
 		
 		JComboBox comboBox = new JComboBox();
